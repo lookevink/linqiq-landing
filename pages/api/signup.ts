@@ -16,10 +16,6 @@ export async function signup(inputEmail: String): Promise<void> {
     .insert([
       { email: {inputEmail}},
     ])
-    if (error) {
-        console.log(error)
-    }
-    console.log(data)
 }
 
 export function getEmailfromInput() {
