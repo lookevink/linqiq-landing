@@ -28,9 +28,10 @@ const Home: NextPage = () => {
           name="LinqiQ"
           content="Save time & money without compromising LP relationships."
         />
+        <meta property="og:image" content="https://www.linqiq.net/mock.png" />
         <meta
           property="og:title"
-          content="https://uvaqjfxzlpgvwyaylghu.supabase.co/storage/v1/object/sign/fund-files/mock.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJmdW5kLWZpbGVzL21vY2sucG5nIiwiaWF0IjoxNjgyMDA1ODA4LCJleHAiOjE3MTM1NDE4MDh9.wHFA3XxvRB8z-oDhsLxCuupLvJuxZWWfRe5khv7O5nk&t=2023-04-20T15%3A50%3A08.841Z"
+          content="Save time & money without compromising LP relationships."
         />
       </Head>
       <Nav />
