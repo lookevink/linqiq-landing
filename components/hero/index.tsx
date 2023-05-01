@@ -1,4 +1,14 @@
-import { Button, Divider, Input, Text } from "@nextui-org/react";
+import {
+  Button,
+  Checkbox,
+  Divider,
+  Input,
+  Modal,
+  Popover,
+  Row,
+  Text,
+  Tooltip,
+} from "@nextui-org/react";
 import React, { useRef } from "react";
 import { CheckIcon } from "../icons/CheckIcon";
 import { Box } from "../styles/box";
@@ -7,9 +17,18 @@ import { getEmailfromInput, signup } from "../../pages/api/signup";
 
 export const Hero = () => {
   const [email, setEmail] = React.useState("");
+  const [visible, setVisible] = React.useState(false);
+  const handler = () => setVisible(true);
+  const closeHandler = () => {
+    setVisible(false);
+    console.log("closed");
+  };
   const handleSubmit = async () => {
     const email = getEmailfromInput();
     await signup(email);
+    //clear input
+    setEmail("");
+    // handler();
   };
   return (
     <>
@@ -97,7 +116,64 @@ export const Hero = () => {
               autoFocus
               onChange={(e) => setEmail(e.target.value)}
             />
-            <Button onPress={handleSubmit}>Join the Waitlist</Button>
+            <Popover>
+              <Popover.Trigger>
+                <Button onPress={handleSubmit}>Join the Waitlist</Button>
+              </Popover.Trigger>
+              <Popover.Content>
+                <Text css={{ p: "$10" }}>
+                  Your response has been recorded. We will reach out to you
+                  soon.
+                </Text>
+              </Popover.Content>
+            </Popover>
+            <Modal
+              closeButton
+              blur
+              aria-labelledby="modal-title"
+              open={visible}
+              onClose={closeHandler}
+            >
+              <Modal.Header>
+                <Text id="modal-title" size={18}>
+                  Welcome to{" "}
+                  <Text b size={18}>
+                    LinqiQ.
+                  </Text>
+                  <Text>
+                    We&apos;ve recorded your request. Meanwhile, please tell us
+                    a little more about how we can help you.
+                  </Text>
+                </Text>
+              </Modal.Header>
+              <Modal.Body>
+                <Input
+                  clearable
+                  bordered
+                  fullWidth
+                  color="primary"
+                  size="lg"
+                  placeholder="Message"
+                />
+                <Checkbox>
+                  <Text size={14}>LP Dashboard</Text>
+                </Checkbox>
+                <Checkbox>
+                  <Text size={14}>Reporting</Text>
+                </Checkbox>
+                <Checkbox>
+                  <Text size={14}>Fundraising</Text>
+                </Checkbox>
+                <Checkbox>
+                  <Text size={14}>Visualization</Text>
+                </Checkbox>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button auto onClick={closeHandler}>
+                  Submit
+                </Button>
+              </Modal.Footer>
+            </Modal>
           </Flex>
           <Flex
             wrap={"wrap"}
