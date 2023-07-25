@@ -16,8 +16,39 @@ import { Trial } from "../components/trial";
 import { Footer } from "../components/footer";
 import { BarChart } from "../components/barchart";
 import { Title } from "chart.js";
+import { useRef } from "react";
 
 const Home: NextPage = () => {
+  const feature1Ref = useRef<HTMLDivElement | null>(null);
+  const feature2Ref = useRef<HTMLDivElement | null>(null);
+  const feature3Ref = useRef<HTMLDivElement | null>(null);
+  const supportRef = useRef<HTMLDivElement | null>(null);
+
+  const handleFeature1Click = () => {
+    console.log("hello");
+    if (feature1Ref.current) {
+      feature1Ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleFeature2Click = () => {
+    if (feature2Ref.current) {
+      feature2Ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleFeature3Click = () => {
+    if (feature3Ref.current) {
+      feature3Ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleSupportClick = () => {
+    if (supportRef.current) {
+      supportRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Layout>
       <Head>
@@ -34,16 +65,21 @@ const Home: NextPage = () => {
           content="Save time & money without compromising LP relationships."
         />
       </Head>
-      <Nav />
+      <Nav
+        onFeature1Click={handleFeature1Click}
+        onFeature2Click={handleFeature2Click}
+        onFeature3Click={handleFeature3Click}
+        onSupportClick={handleSupportClick}
+      />
       <Box as="main">
         <Hero />
         <Trusted />
-        <Features1 />
-        <Features2 />
-        <Features3 />
+        <Features1 ref={feature1Ref} />
+        <Features2 ref={feature2Ref} />
+        <Features3 ref={feature3Ref} />
         <Testimonials />
         <Statistics />
-        <Plans />
+        <Plans ref={supportRef} />
         <Faq />
         <Trial />
         <Footer />

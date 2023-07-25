@@ -156,7 +156,7 @@ export const Testimonials = () => {
                       color: "$accents8",
                     }}
                   >
-                    - MD & Chairman
+                    - Director & Chairman
                   </Text>
                 </Flex>
               </Flex>

@@ -99,9 +99,10 @@ export const Faq = () => {
                   color: "$accents8",
                 }}
               >
-                We are currently building to support Appfolio and Intuit. If you
-                do not use either of these software, don&apos;t worry. You can
-                deliver beautiful narratives. We make CSV import, manual entry,
+                We are currently building an integration with Intuit for
+                accounting, and csv import function from Appfolio. If you do not
+                use either of these software, don&apos;t worry. You can deliver
+                beautiful narratives. We make custom CSV import, manual entry,
                 and updates extremely easy, so you will still enjoy the
                 cost-saving benetfits. Become an early bird, and we will
                 prioritize your software providers in future releases.

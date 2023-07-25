@@ -15,7 +15,18 @@ import { useTheme } from "@nextui-org/react";
 import { LinkedInIcon } from "../icons/LinkedInIcon";
 import { inputFocus } from "../../pages/api/input";
 
-export const Nav = () => {
+type NavProps = {
+  onFeature1Click: () => void;
+  onFeature2Click: () => void;
+  onFeature3Click: () => void;
+  onSupportClick: () => void;
+};
+export const Nav: React.FC<NavProps> = ({
+  onFeature1Click,
+  onFeature2Click,
+  onFeature3Click,
+  onSupportClick,
+}) => {
   const { setTheme } = useNextTheme();
   const { isDark, type } = useTheme();
   const collapseItems = [
@@ -90,7 +101,7 @@ export const Nav = () => {
                 description="Create data-driven & beautiful fund and property narratives."
                 icon={icons.activity}
               >
-                Visualization
+                <div onClick={onFeature1Click}>Visualization</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="integration"
@@ -98,7 +109,7 @@ export const Nav = () => {
                 description="Save time & money with integrations & auto-reconciliation."
                 icon={icons.flash}
               >
-                Real-time
+                <div onClick={onFeature2Click}>Automation</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="control"
@@ -106,7 +117,7 @@ export const Nav = () => {
                 description="Stay in control of your narrative with visibility templates."
                 icon={icons.scale}
               >
-                Granular Control
+                <div onClick={onFeature3Click}>Granular Control</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="modern_tech"
@@ -114,7 +125,7 @@ export const Nav = () => {
                 description="Stay secure, efficient, and powerful with modern tech stack."
                 icon={icons.server}
               >
-                Modern Tech
+                <div onClick={onFeature3Click}> Modern Tech</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="supreme_support"
@@ -122,7 +133,7 @@ export const Nav = () => {
                 description="Team of experts deeply familiar with tech & finance ready to assist you."
                 icon={icons.user}
               >
-                Support
+                <div onClick={onSupportClick}>Support</div>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

@@ -1,12 +1,12 @@
 import { Button, Divider, Text } from "@nextui-org/react";
-import React from "react";
+import React, { forwardRef } from "react";
 import { BoxIcon } from "../icons/BoxIcon";
 import { ListSelect, EyeAlt } from "iconoir-react";
 import { Flex } from "../styles/flex";
 
-export const Features2 = () => {
+export const Features2 = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <>
+    <div ref={ref}>
       <Flex
         direction={"column"}
         css={{
@@ -121,6 +121,7 @@ export const Features2 = () => {
       {/* <Divider
             css={{position: 'absolute', inset: '0p', left: '0', mt: '$5'}}
          /> */}
-    </>
+    </div>
   );
-};
+});
+Features2.displayName = "Features2";

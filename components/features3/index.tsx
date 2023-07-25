@@ -1,13 +1,13 @@
 import { Card, Divider, Text } from "@nextui-org/react";
-import React from "react";
+import React, { forwardRef } from "react";
 import { CheckIcon } from "../icons/CheckIcon";
 import { Box } from "../styles/box";
 import { Loft3D, DatabaseMonitor, ShieldEye, Dollar } from "iconoir-react";
 import { Flex } from "../styles/flex";
 
-export const Features3 = () => {
+export const Features3 = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <>
+    <div ref={ref}>
       <Box
         css={{
           px: "$6",
@@ -117,6 +117,7 @@ export const Features3 = () => {
           </Card>
         </Flex>
       </Box>
-    </>
+    </div>
   );
-};
+});
+Features3.displayName = "Features3";

@@ -1,13 +1,13 @@
 import { Button, Card, Divider, Grid, Link, Text } from "@nextui-org/react";
-import React from "react";
+import React, { forwardRef } from "react";
 import { CheckIcon } from "../icons/CheckIcon";
 import { Box } from "../styles/box";
 import { Flex } from "../styles/flex";
 import { inputFocus } from "../../pages/api/input";
 
-export const Plans = () => {
+export const Plans = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <>
+    <div ref={ref}>
       <div id="pricing"></div>
       <Flex
         css={{ py: "$20", gap: "1rem", px: "$6" }}
@@ -213,6 +213,7 @@ export const Plans = () => {
       {/* <Divider
             css={{position: 'absolute', inset: '0p', left: '0', mt: '$5'}}
          /> */}
-    </>
+    </div>
   );
-};
+});
+Plans.displayName = "Plans";

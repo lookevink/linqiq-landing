@@ -1,12 +1,12 @@
 import { Text } from "@nextui-org/react";
-import React from "react";
+import React, { forwardRef } from "react";
 import { IosSettings, LeaderboardStar, GridAdd } from "iconoir-react";
 import { Flex } from "../styles/flex";
 import { BarChart } from "../barchart";
 
-export const Features1 = () => {
+export const Features1 = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <>
+    <div ref={ref}>
       <Flex
         direction={"column"}
         css={{
@@ -122,6 +122,7 @@ export const Features1 = () => {
           <BarChart />
         </Flex>
       </Flex>
-    </>
+    </div>
   );
-};
+});
+Features1.displayName = "Features1";
